@@ -1,0 +1,28 @@
+.contact {
+    background-color: $blue;
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    color: $light-gray;
+    
+    a {
+        color: $light-gray;
+        transition: 0.1s ease-in-out;
+        
+        &:hover {
+            margin-left: 3px;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        
+        li {
+            margin: 15px 0;
+            
+            i {
+                margin-right: 10px;
+            }
+        }
+    }
+}

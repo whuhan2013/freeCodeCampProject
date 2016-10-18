@@ -1,0 +1,24 @@
+.portfolio {
+    text-align: center;
+    
+    .photo-rounded {
+        height: 300px;
+        width: 300px;
+        float: right;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+
+    .placeholder {
+        height: 250px;
+        width: 100%;
+        background-color: $light-gray;
+        border: 1px solid $mid-gray;
+
+        transition: 0.1s ease-out all;
+
+        &:hover {
+            border: 10px solid $blue;
+        }
+    }
+}
