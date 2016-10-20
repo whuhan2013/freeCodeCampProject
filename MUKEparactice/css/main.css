@@ -1,0 +1,284 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+
+}
+
+body{
+	background-color: #F5F5F5;
+}
+
+.wrap{
+	width: 1000px;
+	margin: 0 auto;
+
+}
+
+.nav{
+	width: 100%;
+	height: 70px;
+	overflow: hidden;
+	clear: both;
+}
+
+.nav_left{
+	width: 200px;
+	height: 70px;
+	margin: 0 10px;
+	background: url(http://img.mukewang.com/53edadad0001efe202000070.jpg);
+	float: left;
+}
+
+.nav_right{
+	float: left;
+}
+
+.nav_right li{
+	list-style-type: none;
+	float: left;
+	width: 100px;
+	line-height: 70px;
+	text-align: center;
+}
+
+/*.nav_right li a{
+	font-size: 16px;
+	font-family: "微软雅黑"
+	font-weight:bold;
+	
+}
+*/
+
+.nav_right li a{
+  width: 100px;
+  height: 70px;
+  display: block;
+}
+
+.nav_right li a:link,.nav_right li a:visited{
+	
+	text-decoration: none;
+	color: #000;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.nav_right li a:hover,.nav_right li a:active{
+	
+	color: #000;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	background-color: #BD3847;
+}
+
+.ad {
+	height: 318px;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.roll_news{
+	height: 50px;
+	margin: 20px 0;
+	overflow: hidden;
+}
+
+.roll_news_left{
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #FFF;
+	background-color: #BD3847;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	float: left;
+}
+
+.roll_news_right{
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #FFF;
+	background-color: #3E3E3E;
+	width: 780px;
+	height: 50px;
+	padding-left: 20px;
+	line-height: 50px;
+	float: left;
+}
+
+.course_center{
+	height: 160px;
+	overflow: hidden;
+}
+
+.course_center_left{
+	float: left;
+}
+
+.course_center_mid{
+	float: left;
+	margin: 0 5px;
+}
+
+.course_center_right{
+	float: left;
+}
+
+.course_center_left p,.course_center_mid p,.course_center_right p{
+	width: 328px;
+	height: 28px;
+	border: 1px solid #E8E8E8;
+	text-align: center;
+	line-height: 28px;
+}
+
+.course_center_left p a,.course_center_mid p a,.course_center_right p a{
+	text-decoration: none;
+	color: #000;
+	font-size: 16px;
+	font-family: "微软雅黑";
+
+}
+
+
+.main{
+	height:300px;
+	margin-top: 20px;
+
+}
+
+
+.main_left{
+	width: 330px;
+	height: 300px;
+	float: left;
+}
+
+.main_mid{
+	width: 330px;
+	height: 300px;
+	margin: 0 5px;
+	float: left;
+}
+
+.main_right{
+	width: 330px;
+	height: 300px;
+	float: left;
+}
+
+
+.main_left h3,.main_mid h3,.main_right h3{
+	width: 330px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #FFF;
+	background-color: #BD3847;
+	text-align: center;
+
+}
+
+.news-content{
+	width: 328px;
+	height: 258px;
+	border: 1px solid #E8E8E8;
+	
+}
+
+/*.clearfix{
+	list-style-type: none;
+	border-bottom: 1px dotted #E8E8E8;
+	height: 85px;
+	
+
+}*/
+
+.main .news-content li {
+  border-bottom: 1px dotted #E8E8E8;
+  
+  list-style-type: none;
+  clear: both;
+  overflow: hidden;
+
+}
+
+.date {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background-color: #BD3847;
+  border-radius: 4px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 15px 5px 15px 5px;
+}
+
+.clearfix h4{
+	font-size: 14px;
+	margin: 15px 0px 10px 0px;
+}
+
+.clearfix p{
+	line-height: 15px;
+}
+.clearfix a{
+	text-decoration: none;
+	color: #000;
+}
+
+.activity-content{
+	width: 328px;
+	height: 258px;
+	border: 1px solid #E8E8E8;
+}
+
+.activity-content img{
+	display: block;
+	margin: 10px auto;
+}
+
+.code-z li{
+	list-style-type: none;
+	line-height: 20px;
+	
+}
+
+.code-z a{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	text-decoration: none;
+	color: #000;
+}
+
+.contact-content{
+	width: 288px;
+	height: 218px;
+	border: 1px solid #E8E8E8;
+	padding: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+
+}
+
+.mb20{
+	margin-bottom: 20px;
+}
+
+.footer{
+  margin-top: 5px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #000000;
+  font-weight: 700;
+  background-color: #E8E8E8;
+}
+
+
+
+
