@@ -1,0 +1,89 @@
+.btn-celsius, 
+.btn-fahrenheit {
+  display: none;
+}
+
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.information {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+html,
+body {
+  height: 100%;
+  background-size: cover;
+  
+}
+
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background-color: #333;
+}
+
+.test{
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+}
+
+.test2{
+   width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+
+.site-wrapper-inner {
+  display: table-cell;
+  
+  vertical-align: middle;
+  width: 100%;
+  
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  padding: 0 20px;
+}
+
+
+.foot{
+  display: table-row;  
+  height: 10%;
+  vertical-align: center;
+  color: rgba(255,255,255,.5);
+
+}
