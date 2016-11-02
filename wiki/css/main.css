@@ -1,0 +1,50 @@
+
+
+body,
+h1,
+h2 {
+	font-family: 'Raleway', sans-serif;
+}
+
+.mya a{
+	text-decoration: none;
+
+}
+
+.myvertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.callout:hover {
+	background-color: #EBEBEB;
+}
+
+.callout{
+	color: #000;
+	border: 1px solid #E3E3E3;
+	padding: 30px 60px;
+	margin-bottom: 20px;
+}
+
+.randomSearch{
+	font-size: 1.5rem;
+}
+
+h1 {
+	font-size: 6rem;
+	font-weight: 500;
+	font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+	text-transform: uppercase;
+}
+
+.textinput{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	height: 35px;
+	text-decoration: none;
+}

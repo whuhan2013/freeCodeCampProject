@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="WikipediaApplication">
+
+<head>
+    <title>WIKI Search</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+<body ng-controller="WikipediaController">
+    <div class="container-fluid">
+        <div id="wiki" class="col-md-6 col-md-offset-3 myvertical mya">
+            <h1 class="text-center">Wikipedia Viewer</h1>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-4">
+                    <form>
+                        <input type="text" class="textinput" placeholder="Search Wikipedia" ng-model="searchTerm" ng-change="searchWikipedia()">
+                    </form>
+                </div>
+            </div>
+            <p class="text-center"><a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank" class="randomSearch">Or click here for a random article</a></p>
+            <a href="https://en.wikipedia.org/?curid={{ result.pageid }}" target="_blank" ng-repeat="result in results">
+                <div class="callout large">
+                    <h2>{{ result.title }}</h2>
+                    <p>{{ result.extract }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
