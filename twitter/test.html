@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+
+
+    <title>CodePen - FreeCodeCamp : Use the Twitchtv JSON API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+        <style>
+      @import url(https://fonts.googleapis.com/css?family=Oswald:400,700|Droid+Serif:400,400italic);
+body {
+  background-color: #ecf0e7;
+  font-family: 'Droid Serif', serif;
+  font-size: 14px;
+  color: #8ea7c2;
+}
+
+a, a:focus, a:hover, a:visited {
+  color: #b8cca6;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 15px 0px;
+  font-size: 3em;
+}
+
+.container {
+  background-color: #e1e1e6;
+  margin: 0px auto;
+  padding: 0px;
+  max-width: 700px;
+}
+
+.row {
+  margin: 2px 0px;
+  padding: 5px;
+  line-height: 50px;
+}
+
+.menu {
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+  color: #5c5457;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.menu #online .circle {
+  background-color: #b8cca6;
+}
+.menu #offline .circle {
+  background-color: #8ea7c2;
+}
+.menu .active, .menu .selector:hover {
+  width: 65px !important;
+  -webkit-transition: width 0.4s linear;
+  transition: width 0.4s linear;
+  cursor: pointer;
+}
+.menu .selector {
+  line-height: 20px;
+  height: 20px;
+  background-color: #e1e1e6;
+  padding: 0px 5px;
+  margin: 2px 0px;
+  width: 20px;
+  overflow: hidden;
+  float: right;
+  clear: right;
+  -webkit-transition: width 0.4s linear;
+  transition: width 0.4s linear;
+}
+.menu .selector .circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #5c5457;
+  border: 1px solid #5c5457;
+  float: left;
+  margin: 5px 5px 5px 0px;
+}
+.menu .selector p {
+  float: right;
+  margin: 0px;
+}
+
+#header, #footer {
+  position: relative;
+  background-color: #5c5457;
+  color: #e1e1e6;
+  padding: 5px 65px 5px 15px;
+}
+
+.logo {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: 3px solid #e1e1e6;
+}
+
+.offline {
+  background-color: #4a5e82;
+}
+
+.online {
+  background-color: #b8cca6;
+  color: #5c5457;
+}
+.online a, .online a:focus, .online a:hover, .online a:visited {
+  color: #4a5e82;
+}
+
+#streaming {
+  font-style: italic;
+}
+
+#name, #streaming {
+  line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 10px auto;
+  }
+
+  #name, #streaming {
+    line-height: 50px;
+    height: 50px;
+  }
+
+  #header {
+    padding-left: 65px;
+  }
+}
+
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+  </head>
+
+  <body translate="no" >
+
+    <div class="container">
+  <div class="row" id="header">
+    <h1>Twitch Streamers</h1>
+    <div class="menu">
+      <div class="selector active" id="all">
+        <div class="circle"></div><p>All</p>
+      </div>
+      <div class="selector" id="online">
+        <div class="circle"></div><p>Online</p>
+      </div>
+      <div class="selector" id="offline">
+        <div class="circle"></div><p>Offline</p>
+      </div>
+    </div>
+  </div>
+  <div id="display">
+  </div>
+  <div class="row" id="footer">
+  </div>
+</div>
+    
+
+   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+        <script>
+      var channels = [
+    'freecodecamp',
+    'test_channel',
+    'ESL_SC2'
+];
+function getChannelInfo() {
+    channels.forEach(function (channel) {
+        function makeURL(type, name) {
+            return 'https://wind-bow.hyperdev.space/twitch-api/' + type + '/' + name + '?callback=?';
+        }
+        ;
+        $.getJSON(makeURL('streams', channel), function (data) {
+            var game, status;
+            if (data.stream === null) {
+                game = 'Offline';
+                status = 'offline';
+            } else if (data.stream === undefined) {
+                game = 'Account Closed';
+                status = 'offline';
+            } else {
+                game = data.stream.game;
+                status = 'online';
+            }
+            ;
+            $.getJSON(makeURL('channels', channel), function (data) {
+                var logo = data.logo != null ? data.logo : 'https://dummyimage.com/50x50/ecf0e7/5c5457.jpg&text=0x3F', name = data.display_name != null ? data.display_name : channel, description = status === 'online' ? ': ' + data.status : '';
+                html = '<div class="row ' + status + '"><div class="col-xs-2 col-sm-1" id="icon"><img src="' + logo + '" class="logo"></div><div class="col-xs-10 col-sm-3" id="name"><a href="' + data.url + '" target="_blank">' + name + '</a></div><div class="col-xs-10 col-sm-8" id="streaming">' + game + '<span class="hidden-xs">' + description + '</span></div></div>';
+                status === 'online' ? $('#display').prepend(html) : $('#display').append(html);
+            });
+        });
+    });
+}
+;
+$(document).ready(function () {
+    getChannelInfo();
+    $('.selector').click(function () {
+        $('.selector').removeClass('active');
+        $(this).addClass('active');
+        var status = $(this).attr('id');
+        if (status === 'all') {
+            $('.online, .offline').removeClass('hidden');
+        } else if (status === 'online') {
+            $('.online').removeClass('hidden');
+            $('.offline').addClass('hidden');
+        } else {
+            $('.offline').removeClass('hidden');
+            $('.online').addClass('hidden');
+        }
+    });
+});
+      //# sourceURL=pen.js
+    </script>
+
+    
+    
+  </body>
+</html>
+ 
